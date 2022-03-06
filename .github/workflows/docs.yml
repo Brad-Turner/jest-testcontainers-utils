@@ -1,9 +1,9 @@
-name: Publish docs to Github pages
+name: Docs
 
 on:
   push:
     branches: [master]
-  
+
 jobs:
   build_docs:
     runs-on: ubuntu-latest
@@ -13,12 +13,12 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
-      
+
       - name: Build docs directory
         run: npm run docs
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
-          with:
-            branch: gh-pages
-            folder: docs
+        with:
+          branch: gh-pages
+          folder: docs
